@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+  <!DOCTYPE html>
 <html>
    <head>
       <title>ClassTeacher</title>
@@ -10,7 +10,7 @@
       <script type="text/javascript" src="js/jquery-ui.min.js"></script>
       <script type="text/javascript" src="js/enableDragMobile.js"></script>
    </head>
-   <body >
+   <body>
       <!-- <body oncontextmenu="return false" onkeydown="return false;" onmousedown="return false;"> -->
       <div class="wrapper">
          <div id="header">
@@ -20,13 +20,66 @@
             </div>
          </div>
          <div id="innerWrapper" class="animated fadeIn">
+          <div class="carryContainer">
+            <p>Add the carry</p>
+            <p class="carriedValue">
+              <span class="dragCarry">0</span>
+            </p>  
+            <p class="carriedValue">
+              <span class="dragCarry">1</span>
+             
+            </p>           
+             <p class="carriedValue">
+              <span class="dragCarry">2</span>
+             
+            </p>            
+            <p class="carriedValue">
+              <span class="dragCarry">3</span>
+            
+            </p>           
+             <p class="carriedValue">
+              <span class="dragCarry">4</span>
+            
+            </p>           
+             <p class="carriedValue">
+              <span class="dragCarry">5</span>
+             
+            </p>           
+             <p class="carriedValue">
+              <span class="dragCarry">6</span>
+            
+            </p>            
+            <p class="carriedValue">
+              <span class="dragCarry">7</span>
+            
+            </p>            
+            <p class="carriedValue">
+              <span class="dragCarry">8</span>
+            
+            </p>      
+            <p class="carriedValue">
+              <span class="dragCarry">9</span>
+             
+            </p>           
+          </div>
           <div class="operations">
             <div class="questionContainer">
               <div class="question border">
-                <p id=firstNo>7894</p>
-                <p><span class="sign">x</span><span id='secNo'></span></p>
-                <div class="ansContainer">
-                </div>
+                <div class="questBox">
+                  <p id=firstNo></p>
+                  <p><span class="sign">x</span><span id='secNo'></span>
+                  </p>
+                  <div class="generateBox">
+                    <div class="ansContainer ans">
+               <!-- <p class="drop"></p>
+                      <p class="drop"></p>
+                      <p class="drop"></p>
+                      <p class="drop"></p>
+                      <p class="drop"></p>
+                      <p class="drop"></p> -->
+                    </div>
+                  </div>
+              </div>
               </div>
               <div class="options border">
                  <p><span class="drag">0</span></p>
@@ -58,9 +111,21 @@
             <button id="check"> CHECK </button>
             <button id="next"> NEXT </button>
             <button id="reload"> RELOAD </button>
+            <button id="showAns"> SHOW ANSWER </button>
+            <button id="clearCarry">ERASE CARRY</button>
+            <button id="reset">RESET</button>
           </div>
           </div><!--innerwrapper end here -->
         </div>  <!--wrapper end here -->
+        <div class="oops">
+          <img src='img/oops.png' />
+          <h1>try again</h1>
+        </div>  
+
+              <div class="wellDone">
+          <img src='img/congrates.png' />
+          <h1>Well Done</h1>
+        </div>
       <script type="text/javascript" src="data/data.js"></script>
       <script type="text/javascript" src="js/script.js"></script>
    </body>
