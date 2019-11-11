@@ -63,6 +63,8 @@ $(function() {
                 $('#clearCarry').show();
             }
         })
+
+        $('.dragCarry').css({'color': carryColor})
     } // end function drag carry
  
 
@@ -181,7 +183,7 @@ $(function() {
         $('.dragCarry').removeAttr('style');
         generateContent();
         dragDrop();
-        $('#firstNo > span > span').hide();
+        dragCarry();
     }) // end next function
 
 
@@ -281,17 +283,19 @@ $(function() {
 
     //show the correct answer
     $('#showAns').click(function() {
+       $('.carryDropContainer').empty();
+       $('#clearCarry').hide();
         // generate answer
         $(this).hide();
         $('#reset').hide();
-        // $('#firstNo > span > span').show();
-        let dropTag = '';
-        let ansArray = Array.from(result.toString(), Number);
-        for (let i = 0; i < ansArray.length; i++) {
-            let pTag = `<p class="drop"><span style='color:${ansColor}'>${ansArray[i]}</span></p>`;
-            dropTag += pTag;
-        }
-        $('.ans').html(dropTag);
+         let dataAttr = $('.drop');
+         dataAttr.css({'borderColor':'#fff'});
+            $.each(dataAttr, function(index, value){
+            // let dataUser = $(value).attr('data-user');
+            let dataOriginal = $(value).attr('data-original');
+            $(value).html(`<span style='color:${ansColor}'>${dataOriginal}</span>`);
+          })
+
     }) //end show answer function
 
 
@@ -308,6 +312,8 @@ $('#reset').click(function(){
   $('.drop').empty();
   $(this).hide();
   $('.drop').css({'borderColor':'#fff'})
+            .attr('data-user' , '');
+  $('.carryDropContainer').empty();
 }) // end all user input field
 
 //function to show error
@@ -321,7 +327,10 @@ function showError(){
     }else{
       $(value).css({'borderColor':errorColor})
     }
+
   })
+
+
 }
 
 }); // end document ready function 

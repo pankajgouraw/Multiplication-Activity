@@ -226,7 +226,7 @@ box-shadow: 0px 0px 5px #000;
 #firstNo > span > span {
 display: inline-block;
 left: -32px;
-border: 1px solid;
+/*border: 1px solid;*/
 width: 30px;
 }
 
