@@ -36,7 +36,7 @@ $(function() {
                 }));
 
                 $(event.target).attr('data-user',ui.draggable.text());
-                console.log(event.target)
+                // console.log(event.target)
 
                 if ($(this).children("span").length > 1) {
                     $(this).children("span:nth-child(1)").remove();
@@ -75,9 +75,6 @@ $(function() {
         // generate random numbers
        let randA = Math.ceil(Math.random() * (maxA - minA) + 1) + minA;
        let randB = Math.ceil(Math.random() * (maxB - minB) + 1) + minB;       
-
-        // let randA = 120
-        // let randB = 120
 
         // convert random number into array
         carryRandA = Array.from(randA.toString(), Number);
@@ -251,7 +248,10 @@ $(function() {
 
 
     // try again message
+              let audio2 = new Audio('audio/tryAgain.mp3');
+
     function oopsTryAgain() {
+      audio2.play(); 
         $('.oops').removeClass('zoomOut');
         $('.oops').addClass('animated zoomIn oopsHW');
 
@@ -266,7 +266,10 @@ $(function() {
 
 
     // well done message
+       let audio1 = new Audio('audio/welldone.mp3');
+
     function wellDone() {
+       audio1.play();
         $('.wellDone').removeClass('zoomOut');
         $('.wellDone').addClass('animated zoomIn oopsHW');
         setTimeout(function() {
@@ -311,7 +314,7 @@ $('#clearCarry').click(function(){
 $('#reset').click(function(){
   $('.drop').empty();
   $(this).hide();
-  $('.drop').css({'borderColor':'#fff'})
+  $('.drop').css({'borderColor':'#000'})
             .attr('data-user' , '');
   $('.carryDropContainer').empty();
 }) // end all user input field
@@ -324,13 +327,32 @@ function showError(){
     let dataUser = $(value).attr('data-user');
     let dataOriginal = $(value).attr('data-original');
     if(dataUser == dataOriginal){
+       $(value).css({'borderColor':'#fff'}) 
     }else{
       $(value).css({'borderColor':errorColor})
     }
 
   })
-
-
 }
+
+// function to generate the place value
+  function generatePlaceValue(){
+    let Arr = $('.ans > .drop');
+    console.log(Arr);
+    for(let i= 0; i < Arr.length; i++){
+       if(i==0){$('.placeValueContainer').prepend(`<p class="placeValue">o</p>`);} 
+       if(i==1){$('.placeValueContainer').prepend(`<p class='placeValue'>t</p>`);} 
+       if(i==2){$('.placeValueContainer').prepend(`<p class='placeValue'>h</p>`);} 
+       if(i==3){$('.placeValueContainer').prepend(`<p class='placeValue'>th</p>`);} 
+       if(i==4){$('.placeValueContainer').prepend(`<p class='placeValue'>t.th</p>`);} 
+       if(i==5){$ ('.placeValueContainer').prepend(`<p class='placeValue'>l</p>`);} 
+       if(i==6){$ ('.placeValueContainer').prepend(`<p class='placeValue'>tl</p>`);} 
+       if(i==7){$ ('.placeValueContainer').prepend(`<p class='placeValue'>c</p>`);} 
+       if(i==8){$ ('.placeValueContainer').prepend(`<p class='placeValue'>tc</p>`);} 
+    }
+  }
+  generatePlaceValue()
+  // function to generate the place value end
+
 
 }); // end document ready function 

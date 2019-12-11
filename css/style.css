@@ -13,12 +13,28 @@ body {
 
 #header .logo h3 {
 flex-grow: 1;
-text-align: right;
+text-align: center;
 font-family: sans-serif;
 font-size: 28px;
-color: #fff;
+color: #000;
 margin-top:0px;
+
 }
+
+
+.ansContainer p:first-child::before {
+    content: '+';
+    position: absolute;
+left: -30px;
+}
+.ansContainer:first-child p:first-child::before{
+    display: none;
+}
+.ansContainer:last-child p:first-child::before{
+    display: none;
+}
+
+
 
 
 .carryContainer p:first-child{
@@ -33,7 +49,7 @@ margin-top:0px;
  /*   background:
     #000000d6;*/
     color:
-    #fff;
+    #000;
     height: 0px;
     overflow: hidden;
     width: 0px;
@@ -43,6 +59,7 @@ margin-top:0px;
 }
 .questBox {
     text-align: right;
+    margin-top:10px;
 }
 .oops img{
 width: 200px;
@@ -56,7 +73,7 @@ margin-bottom: 30px;
 /*    background:
     #000000d6;*/
     color:
-    #fff;
+    #000;
     height: 0px;
     overflow: hidden;
     width: 0px;
@@ -89,7 +106,7 @@ cursor:pointer;
 }
 
 .carryContainer .carriedValue{
-border: 1px solid #fff;
+border: 2px solid #000;
 /*margin-left: 10px;*/
 height: 30px;
 width:30px;
@@ -97,7 +114,7 @@ position: relative;
 }
 
 #secNo{}
-.carryContainer p{color:#fff;}
+.carryContainer p{color:#000;}
 .carryContainer{
    display: flex;
 max-width: 542px;
@@ -115,15 +132,19 @@ align-items: center;
 #firstNo > span > span {
 left: -40px;
 position: absolute;
-top: -9px;
-font-size: 15px;
+top: -13px;
+font-size: 17px;
 width: 35px;
-text-align: right;
-height: 30px;
+text-align: center;
+height: 45px;
+}
+.resulNav{
+    display: flex;
+flex-direction: column;
 }
 #innerWrapper h2{font-family: sans-serif;font-weight: bold;position: relative;left: -70px;}
 .questionNo{color: #fff;text-align: center;font-size: 30px;font-weight: 600;}
-.nav{padding: 0px 10px;max-width: 500px;margin: auto;margin-top: 20px;}
+.nav{margin-top: 20px;}
 .nav img:nth-child(1){float:left;}
 .nav img:nth-child(2){float:right;}
 .nav img{width: 120px;cursor:pointer;z-index:999;position: relative;}
@@ -154,12 +175,12 @@ height: 30px;
 /*#secNo, #firstNo{letter-spacing: 20px;}*/
 #secNo > span{ width: 40px; display: inline-block; text-align: center; border:1px solid transparent;}
 #firstNo > span {position: relative; width: 40px; display: inline-block; text-align: center; border:1px solid transparent;}
-.questionContainer .question p{font-size: 35px;}
+.questionContainer .question p{font-size: 35px; position: relative;}
 .questionContainer .options{}
 .options{ margin-top: 10px;padding-top: 10px;padding-bottom: 10px;display: flex;}
 .options p span{display: block;width: inherit;height: inherit;}
 .options p{
-border: 1px solid #fff;
+border: 1px solid #000;
 width: 40px;
 height: 40px;
 font-size: 35px;
@@ -171,13 +192,13 @@ cursor:pointer;
 overflow: hidden;
 }
 .generateBox{border-top: 2px solid
-#fff;
+#000;
 margin-top: 5px;
 padding-top: 5px;}
 .ansContainer{margin-top: 5px;display: flex;justify-content: flex-end;}
-.ans{border-top: 2px solid #fff;margin-top: 10px;padding-top: 10px;display: flex;justify-content: end;}
+.ans{border-top: 2px solid #000;margin-top: 10px;padding-top: 10px;display: flex;justify-content: end;}
 .ansContainer p{
-border: 1px solid #fff;
+border: 1px solid #000;
 width: 40px;
 height: 40px;
 display: flex;
@@ -189,6 +210,7 @@ align-items: center;
 
 }
 
+.resulNav{width:138px;}
 .resultContainer{width:115px; height: min-content;}
 .resultContainer .output{ 
 width: 50%;
@@ -203,9 +225,25 @@ box-shadow: 0px 0px 5px #000;
 
 #next, #reload{ display: none; }
 
-.nav button{ padding: 5px 10px; font-weight: 600; cursor:pointer; letter-spacing: 1px;}
+.nav button{width:100%; padding: 5px 10px; font-weight: 600; cursor:pointer; letter-spacing: 1px;}
 
-
+.placeValueContainer{
+display: flex;
+justify-content: flex-end;
+margin-top: -10px;
+}
+.placeValueContainer .placeValue{
+border: 1px solid
+transparent;
+width: 40px;
+height: 40px;
+display: flex;
+justify-content: center;
+align-items: center;
+font-size: 15px !important;
+text-transform: uppercase;
+font-weight: bold;
+}
 
 
 
@@ -216,6 +254,7 @@ box-shadow: 0px 0px 5px #000;
 .questionContainer .question p{font-size: 25px;}
 .ansContainer p{font-size: 25px;width: 30px;height: 30px;}
 .resultContainer{width:80px;}
+.resulNav{width:103px;}
 .resultContainer .output{height: 40px;}
 .carryContainer{ 
     justify-content: flex-start;
@@ -229,6 +268,11 @@ left: -32px;
 /*border: 1px solid;*/
 width: 30px;
 }
+
+.placeValueContainer .placeValue{
+
+width: 30px;
+height: 30px;
 
 }
 
@@ -244,6 +288,8 @@ width: 30px;
 .operations{
         flex-direction: column;
 }
+.resulNav{width: auto; 
+flex-direction: column-reverse;}
 .resultContainer{width: auto;
 margin-left: 0px;
 margin-top: 15px;}
